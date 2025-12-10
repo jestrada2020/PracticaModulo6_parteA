@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica Módulo 6 - Ecuaciones Matemáticas Básicas</title>
+    <title>Práctica 6 - Ecuaciones Matemáticas Básicas</title>
             <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #f0f4ff 0%, #e9ecf8 100%);
             color: #1e293b;
             line-height: 1.7;
             padding: 20px;
@@ -24,8 +24,8 @@
             max-width: 1200px;
             margin: 0 auto;
             background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(91, 78, 196, 0.08);
             padding: 40px;
             margin-bottom: 30px;
         }
@@ -38,34 +38,127 @@
         }
         
         h1 {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            background: linear-gradient(135deg, #5b4ec4 0%, #4a3da8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 12px;
             font-weight: 700;
             letter-spacing: -0.02em;
         }
-        
+
         .subtitle {
+            color: #5b4ec4;
+            font-size: 1.25em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .subtitle-secondary {
             color: #64748b;
-            font-size: 1.15em;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
         
+        /* Estilos del botón PDF */
+        .pdf-button-container {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 1em;
+            font-weight: 600;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-pdf em {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Estilos del contenedor PDF */
+        .pdf-container {
+            margin-top: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-container.hidden {
+            display: none;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #5b4ec4 0%, #4a3da8 100%);
+            color: white;
+        }
+
+        .pdf-header h3 {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .btn-close-pdf {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn-close-pdf:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #pdfViewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
         .objectives {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-            border-left: 4px solid #3b82f6;
+            background: linear-gradient(135deg, rgba(91, 78, 196, 0.08) 0%, rgba(91, 78, 196, 0.03) 100%);
+            border-left: 4px solid #5b4ec4;
             padding: 25px;
             margin-bottom: 35px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.08);
+            box-shadow: 0 4px 15px rgba(91, 78, 196, 0.08);
         }
-        
+
         .objectives h2 {
-            color: #3b82f6;
+            color: #5b4ec4;
             margin-bottom: 18px;
             font-size: 1.5em;
             font-weight: 600;
@@ -84,7 +177,7 @@
         
         .objectives li:before {
             content: "✓";
-            color: #3b82f6;
+            color: #5b4ec4;
             font-weight: bold;
             position: absolute;
             left: 0;
@@ -124,18 +217,18 @@
         }
         
         .exercise:hover {
-            border-color: #a5b4fc;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.12);
+            border-color: #c4b5fd;
+            box-shadow: 0 8px 25px rgba(91, 78, 196, 0.12);
             transform: translateY(-2px);
         }
         
         .exercise h3 {
-            color: #6366f1;
+            color: #5b4ec4;
             margin-bottom: 20px;
             font-size: 1.4em;
             font-weight: 600;
             padding-bottom: 12px;
-            border-bottom: 2px solid #a5b4fc;
+            border-bottom: 2px solid #c4b5fd;
         }
         
         .context, .data, .solution {
@@ -184,11 +277,11 @@
         
         .answer-input:focus {
             outline: none;
-            border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            border-color: #5b4ec4;
+            box-shadow: 0 0 0 3px rgba(91, 78, 196, 0.2);
             background-color: #ffffff;
         }
-        
+
         .button {
             padding: 14px 32px;
             font-size: 1.05em;
@@ -200,15 +293,15 @@
             margin: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-submit {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            background: linear-gradient(135deg, #5b4ec4 0%, #4a3da8 100%);
             color: white;
         }
-        
+
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(91, 78, 196, 0.3);
         }
         
         .btn-reset {
@@ -282,7 +375,7 @@
         }
         
         .math-inline {
-            color: #6366f1;
+            color: #5b4ec4;
             font-weight: 500;
         }
         
@@ -290,15 +383,32 @@
             .container {
                 padding: 25px 20px;
             }
-            
+
             h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
-            
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
             .button {
                 display: block;
                 width: 100%;
                 margin: 10px 0;
+            }
+
+            .btn-pdf {
+                width: 100%;
+                justify-content: center;
+            }
+
+            #pdfViewer {
+                height: 500px;
+            }
+
+            .pdf-header h3 {
+                font-size: 1em;
             }
         }
     </style>
@@ -335,8 +445,31 @@
     <div class="container">
         <header>
             <h1>Tecnología en Producción Pecuaria Sostenible</h1>
-            <h2>Práctica Módulo 6 - Ecuaciones Matemáticas Básicas</h2>
-            <p class="subtitle">Aplicaciones en Producción Pecuaria</p>
+            <h2 class="subtitle">Matemáticas - Práctica Módulo 6</h2>
+            <p class="subtitle-secondary">Concepto Básico y Funcional de Matemática Aplicado a Sistemas Pecuarios</p>
+
+            <!-- Botón para ver PDF -->
+            <div class="pdf-button-container">
+                <button class="btn-pdf" onclick="togglePDF()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Ver Documento de Práctica <em>PDF</em>
+                </button>
+            </div>
+
+            <!-- Contenedor para PDF embebido -->
+            <div id="pdfContainer" class="pdf-container hidden">
+                <div class="pdf-header">
+                    <h3>Documento de Práctica</h3>
+                    <button class="btn-close-pdf" onclick="togglePDF()">✕</button>
+                </div>
+                <iframe id="pdfViewer" src="Practica_Modulo6_Ecuaciones_Matematicas_Basicas.pdf" frameborder="0"></iframe>
+            </div>
         </header>
         
         <div class="objectives">
@@ -359,13 +492,14 @@
         <div class="section">
             <h2>Ecuaciones Lineales</h2>
             <div class="math-formula">
-                <strong>Forma General:</strong> ax + b = c
+                <strong>Forma General:</strong>
+                $$ax + b = c$$
             </div>
             <p><strong>Método de resolución:</strong></p>
             <ol>
-                <li>Despejar términos con x a un lado</li>
+                <li>Despejar términos con \(x\) a un lado</li>
                 <li>Despejar términos constantes al otro</li>
-                <li>Dividir por el coeficiente de x</li>
+                <li>Dividir por el coeficiente de \(x\)</li>
             </ol>
         </div>
         
@@ -377,11 +511,13 @@
                 <div class="exercise-points">2 pts</div>
                 <h3>Ejercicio 1: Cálculo de Animales</h3>
                 <p>Una finca tiene vacas y terneros. Hay 45 animales en total y las vacas son el triple de los terneros.</p>
-                <p>Sea x = número de terneros.</p>
+                <p>Sea \(x\) = número de terneros.</p>
                 <div class="math-formula">
-                    Terneros: x<br>
-                    Vacas: 3x<br>
-                    Total: x + 3$x = 45$
+                    $$\begin{align}
+                    \text{Terneros: } & x \\
+                    \text{Vacas: } & 3x \\
+                    \text{Total: } & x + 3x = 45
+                    \end{align}$$
                 </div>
                 <input type="text" class="solution-input" placeholder="Número de terneros" data-answer="11.25" data-points="2">
                 <input type="text" class="solution-input" placeholder="Número de vacas" data-answer="33.75" data-points="2">
@@ -394,15 +530,17 @@
                 <h3>Ejercicio 2: Mezcla de Alimentos</h3>
                 <p>Se mezclan dos tipos de concentrado:</p>
                 <ul>
-                    <li>Tipo A: $18\%$ proteína, costo $1,500/kg</li>
-                    <li>Tipo B: $12\%$ proteína, costo $1,000/kg</li>
+                    <li>Tipo A: \(18\%\) proteína, costo \(\$1{,}500/\text{kg}\)</li>
+                    <li>Tipo B: \(12\%\) proteína, costo \(\$1{,}000/\text{kg}\)</li>
                 </ul>
-                <p>Necesitamos 100 kg con $15\%$ proteína.</p>
-                <p>Sea x = kg de tipo A.</p>
+                <p>Necesitamos 100 kg con \(15\%\) proteína.</p>
+                <p>Sea \(x\) = kg de tipo A.</p>
                 <div class="math-formula">
-                    Tipo A: x kg<br>
-                    Tipo B: (100-x) kg<br>
-                    Proteína: 0.18x + 0.12(100-x) = 0.15(100)
+                    $$\begin{align}
+                    \text{Tipo A: } & x \text{ kg} \\
+                    \text{Tipo B: } & (100-x) \text{ kg} \\
+                    \text{Proteína: } & 0.18x + 0.12(100-x) = 0.15(100)
+                    \end{align}$$
                 </div>
                 <input type="text" class="solution-input" placeholder="Kg de Tipo A" data-answer="50" data-points="3">
                 <input type="text" class="solution-input" placeholder="Kg de Tipo B" data-answer="50" data-points="3">
@@ -413,10 +551,12 @@
         <div class="section">
             <h2>Ecuaciones Cuadráticas</h2>
             <div class="math-formula">
-                <strong>Forma General:</strong> ax² + bx + c = 0
+                <strong>Forma General:</strong>
+                $$ax^2 + bx + c = 0$$
             </div>
             <div class="math-formula">
-                <strong>Fórmula cuadrática:</strong> x = (-b $\pm$ $\sqrt{b²-4ac}$)/(2a)
+                <strong>Fórmula cuadrática:</strong>
+                $$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
             </div>
         </div>
         
@@ -428,9 +568,9 @@
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 3: Optimización de Área</h3>
                 <p>Un potrero rectangular de perímetro 200 m debe maximizar área.</p>
-                <p>Sean: largo = x, ancho = 100-x (perímetro/2).</p>
+                <p>Sean: largo = \(x\), ancho = \(100-x\) (perímetro/2).</p>
                 <div class="math-formula">
-                    A(x) = x(100-x) = 100x - x²
+                    $$A(x) = x(100-x) = 100x - x^2$$
                 </div>
                 <input type="text" class="solution-input" placeholder="Largo óptimo (m)" data-answer="50" data-points="2">
                 <input type="text" class="solution-input" placeholder="Ancho óptimo (m)" data-answer="50" data-points="2">
@@ -457,13 +597,13 @@
                 <div class="exercise-number">5</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 5: Costo de Alimentación</h3>
-                <p>El costo total C de alimentar x vacas por día es:</p>
+                <p>El costo total \(C\) de alimentar \(x\) vacas por día es:</p>
                 <div class="math-formula">
-                    $C(x)$ = 18x + 150
+                    $$C(x) = 18x + 150$$
                 </div>
                 <ol>
                     <li>¿Cuánto cuesta alimentar 40 vacas?</li>
-                    <li>Si el presupuesto es $1,000, ¿cuántas vacas?</li>
+                    <li>Si el presupuesto es \(\$1{,}000\), ¿cuántas vacas?</li>
                     <li>Interprete el término constante (150)</li>
                 </ol>
                 <input type="text" class="solution-input" placeholder="Costo para 40 vacas" data-answer="870" data-points="1">
@@ -476,7 +616,7 @@
                 <div class="exercise-number">6</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 6: Ganancia de Peso</h3>
-                <p>Un cerdo pesa W(t) = 45 + 0.8t kg después de t días.</p>
+                <p>Un cerdo pesa \(W(t) = 45 + 0.8t\) kg después de \(t\) días.</p>
                 <ol>
                     <li>Peso a los 90 días</li>
                     <li>¿Cuándo alcanza 110 kg?</li>
@@ -492,10 +632,10 @@
                 <div class="exercise-number">7</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 7: Producción y Demanda</h3>
-                <p>Producción de huevos: P(x) = 500x donde x = días.</p>
-                <p>Demanda acumulada: D(x) = 450x + 2,000.</p>
+                <p>Producción de huevos: \(P(x) = 500x\) donde \(x\) = días.</p>
+                <p>Demanda acumulada: \(D(x) = 450x + 2{,}000\).</p>
                 <ol>
-                    <li>¿Cuándo P(x) = D(x)?</li>
+                    <li>¿Cuándo \(P(x) = D(x)\)?</li>
                     <li>¿Habrá superávit o déficit antes?</li>
                 </ol>
                 <input type="text" class="solution-input" placeholder="Días cuando P(x) = D(x)" data-answer="40" data-points="2">
@@ -509,12 +649,12 @@
                 <h3>Ejercicio 8: Trayectoria Parabólica</h3>
                 <p>Un sistema de riego lanza agua según:</p>
                 <div class="math-formula">
-                    h(x) = -0.05x² + 2x
+                    $$h(x) = -0.05x^2 + 2x$$
                 </div>
-                <p>donde h = altura (m), x = distancia (m).</p>
+                <p>donde \(h\) = altura (m), \(x\) = distancia (m).</p>
                 <ol>
                     <li>Altura máxima</li>
-                    <li>Distancia máxima (cuando h=0)</li>
+                    <li>Distancia máxima (cuando \(h=0\))</li>
                     <li>Grafique</li>
                 </ol>
                 <input type="text" class="solution-input" placeholder="Altura máxima (m)" data-answer="20" data-points="2">
@@ -529,7 +669,7 @@
                 <h3>Ejercicio 9: Cerca Óptima</h3>
                 <p>Material para 240 m de cerca. Formar rectángulo de área máxima.</p>
                 <ol>
-                    <li>Plantee A(x) donde x es un lado</li>
+                    <li>Plantee \(A(x)\) donde \(x\) es un lado</li>
                     <li>Derive e iguale a cero</li>
                     <li>Calcule dimensiones óptimas</li>
                     <li>Área máxima</li>
@@ -538,7 +678,7 @@
                 <input type="text" class="solution-input" placeholder="Derivada" data-answer="120-2x" data-points="1">
                 <input type="text" class="solution-input" placeholder="Largo óptimo (m)" data-answer="60" data-points="1">
                 <input type="text" class="solution-input" placeholder="Ancho óptimo (m)" data-answer="60" data-points="1">
-                <input type="text" class="solution-input" placeholder="Área máxima ($m^{2}$)" data-answer="3600" data-points="1">
+                <input type="text" class="solution-input" placeholder="Área máxima (m²)" data-answer="3600" data-points="1">
                 <div class="answer-feedback hidden"></div>
             </div>
             
@@ -546,10 +686,12 @@
                 <div class="exercise-number">10</div>
                 <div class="exercise-points">5 pts</div>
                 <h3>Ejercicio 10: Sistema de Ecuaciones</h3>
-                <p>Granja compra maíz (x kg) y soya (y kg):</p>
+                <p>Granja compra maíz (\(x\) kg) y soya (\(y\) kg):</p>
                 <div class="math-formula">
-                    x + $y = 500$ (total)<br>
-                    1200x + 2800$y = 900$,000 (costo)
+                    $$\begin{cases}
+                    x + y = 500 & \text{(total)} \\
+                    1200x + 2800y = 900{,}000 & \text{(costo)}
+                    \end{cases}$$
                 </div>
                 <p>Resuelva el sistema.</p>
                 <input type="text" class="solution-input" placeholder="Kg de maíz" data-answer="350" data-points="2">
@@ -561,7 +703,10 @@
                 <div class="exercise-number">11</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 11: Modelo de Población</h3>
-                <p>Población de gallinas: $P(t)$ = -2t² + 60t + 400 (meses).</p>
+                <p>Población de gallinas:</p>
+                <div class="math-formula">
+                    $$P(t) = -2t^2 + 60t + 400 \quad \text{(meses)}$$
+                </div>
                 <ol>
                     <li>Población inicial</li>
                     <li>Máxima población (vértice)</li>
@@ -579,13 +724,13 @@
                 <div class="exercise-number">12</div>
                 <div class="exercise-points">5 pts</div>
                 <h3>Ejercicio 12: Break-Even Point</h3>
-                <p>Costos: $C(x)$ = 250x + 15,000,000</p>
-                <p>Ingresos: I(x) = 450x</p>
-                <p>donde x = cerdos producidos.</p>
+                <p>Costos: \(C(x) = 250x + 15{,}000{,}000\)</p>
+                <p>Ingresos: \(I(x) = 450x\)</p>
+                <p>donde \(x\) = cerdos producidos.</p>
                 <ol>
-                    <li>Punto de equilibrio (C=I)</li>
+                    <li>Punto de equilibrio (\(C=I\))</li>
                     <li>Utilidad con 100 cerdos</li>
-                    <li>Cerdos para $10,000,000 de utilidad</li>
+                    <li>Cerdos para \(\$10{,}000{,}000\) de utilidad</li>
                 </ol>
                 <input type="text" class="solution-input" placeholder="Punto de equilibrio" data-answer="60000" data-points="2">
                 <input type="text" class="solution-input" placeholder="Utilidad con 100 cerdos" data-answer="-14750000" data-points="1">
@@ -597,10 +742,13 @@
                 <div class="exercise-number">13</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 13: Concentración de Medicamento</h3>
-                <p>Concentración en sangre: C(t) = 120t/(t²+4) mg/L.</p>
+                <p>Concentración en sangre:</p>
+                <div class="math-formula">
+                    $$C(t) = \frac{120t}{t^2+4} \quad \text{mg/L}$$
+                </div>
                 <ol>
-                    <li>C a 2 horas</li>
-                    <li>¿Cuándo C = 20 mg/L?</li>
+                    <li>\(C\) a 2 horas</li>
+                    <li>¿Cuándo \(C = 20\) mg/L?</li>
                     <li>Concentración máxima</li>
                 </ol>
                 <input type="text" class="solution-input" placeholder="Concentración a 2 horas" data-answer="24" data-points="1">
@@ -613,13 +761,13 @@
                 <div class="exercise-number">14</div>
                 <div class="exercise-points">3 pts</div>
                 <h3>Ejercicio 14: Ración Diaria</h3>
-                <p>Una vaca necesita 25 kg de alimento con $16\%$ de proteína.</p>
+                <p>Una vaca necesita 25 kg de alimento con \(16\%\) de proteína.</p>
                 <p>Disponemos de dos alimentos:</p>
                 <ul>
-                    <li>Alimento A: $20\%$ proteína</li>
-                    <li>Alimento B: $12\%$ proteína</li>
+                    <li>Alimento A: \(20\%\) proteína</li>
+                    <li>Alimento B: \(12\%\) proteína</li>
                 </ul>
-                <p>Sea x = kg de Alimento A.</p>
+                <p>Sea \(x\) = kg de Alimento A.</p>
                 <input type="text" class="solution-input" placeholder="Kg de Alimento A" data-answer="12.5" data-points="3">
                 <input type="text" class="solution-input" placeholder="Kg de Alimento B" data-answer="12.5" data-points="3">
                 <div class="answer-feedback hidden"></div>
@@ -629,7 +777,10 @@
                 <div class="exercise-number">15</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 15: Crecimiento Bacteriano</h3>
-                <p>La población bacteriana sigue: $P(t)$ = 200e^(0.05t)</p>
+                <p>La población bacteriana sigue:</p>
+                <div class="math-formula">
+                    $$P(t) = 200e^{0.05t}$$
+                </div>
                 <ol>
                     <li>Población inicial</li>
                     <li>¿Cuándo alcanza 500?</li>
@@ -645,13 +796,13 @@
                 <div class="exercise-number">16</div>
                 <div class="exercise-points">5 pts</div>
                 <h3>Ejercicio 16: Inversión Pecuaria</h3>
-                <p>Se invierten $50,000 en dos proyectos:</p>
+                <p>Se invierten \(\$50{,}000\) en dos proyectos:</p>
                 <ul>
-                    <li>Proyecto A: $8\%$ interés anual</li>
-                    <li>Proyecto B: $12\%$ interés anual</li>
+                    <li>Proyecto A: \(8\%\) interés anual</li>
+                    <li>Proyecto B: \(12\%\) interés anual</li>
                 </ul>
-                <p>El interés total es $5,400.</p>
-                <p>Sea x = inversión en Proyecto A.</p>
+                <p>El interés total es \(\$5{,}400\).</p>
+                <p>Sea \(x\) = inversión en Proyecto A.</p>
                 <input type="text" class="solution-input" placeholder="Inversión en Proyecto A" data-answer="30000" data-points="2">
                 <input type="text" class="solution-input" placeholder="Inversión en Proyecto B" data-answer="20000" data-points="2">
                 <input type="text" class="solution-input" placeholder="Interés de Proyecto A" data-answer="2400" data-points="1">
@@ -662,7 +813,10 @@
                 <div class="exercise-number">17</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 17: Temperatura en Establo</h3>
-                <p>La temperatura T(t) en un establo sigue: T(t) = 20 + 5sin(πt/12)</p>
+                <p>La temperatura \(T(t)\) en un establo sigue:</p>
+                <div class="math-formula">
+                    $$T(t) = 20 + 5\sin\left(\frac{\pi t}{12}\right)$$
+                </div>
                 <ol>
                     <li>Temperatura máxima</li>
                     <li>Temperatura mínima</li>
@@ -678,7 +832,10 @@
                 <div class="exercise-number">18</div>
                 <div class="exercise-points">3 pts</div>
                 <h3>Ejercicio 18: Dosis de Vacuna</h3>
-                <p>La dosis D(w) para un animal de peso w kg es: D(w) = 0.02w + 1</p>
+                <p>La dosis \(D(w)\) para un animal de peso \(w\) kg es:</p>
+                <div class="math-formula">
+                    $$D(w) = 0.02w + 1$$
+                </div>
                 <ol>
                     <li>Dosis para animal de 150 kg</li>
                     <li>Peso para dosis de 4 ml</li>
@@ -694,7 +851,10 @@
                 <div class="exercise-number">19</div>
                 <div class="exercise-points">5 pts</div>
                 <h3>Ejercicio 19: Producción de Leche</h3>
-                <p>La producción L(d) de leche por día es: L(d) = -0.1d² + 8d + 200</p>
+                <p>La producción \(L(d)\) de leche por día es:</p>
+                <div class="math-formula">
+                    $$L(d) = -0.1d^2 + 8d + 200$$
+                </div>
                 <ol>
                     <li>Producción inicial</li>
                     <li>Día de máxima producción</li>
@@ -712,10 +872,13 @@
                 <div class="exercise-number">20</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 20: Costo de Transporte</h3>
-                <p>El costo C(k) de transportar k kg de forraje es: C(k) = 50 + 0.5k</p>
+                <p>El costo \(C(k)\) de transportar \(k\) kg de forraje es:</p>
+                <div class="math-formula">
+                    $$C(k) = 50 + 0.5k$$
+                </div>
                 <ol>
                     <li>Costo para transportar 300 kg</li>
-                    <li>Kg transportables con $200</li>
+                    <li>Kg transportables con \(\$200\)</li>
                     <li>Costo fijo</li>
                     <li>Costo variable por kg</li>
                 </ol>
@@ -730,7 +893,10 @@
                 <div class="exercise-number">21</div>
                 <div class="exercise-points">3 pts</div>
                 <h3>Ejercicio 21: Relación Peso-Edad</h3>
-                <p>El peso W(e) de un ternero a e meses es: W(e) = 40 + 8e</p>
+                <p>El peso \(W(e)\) de un ternero a \(e\) meses es:</p>
+                <div class="math-formula">
+                    $$W(e) = 40 + 8e$$
+                </div>
                 <ol>
                     <li>Peso a 6 meses</li>
                     <li>Edad para peso de 80 kg</li>
@@ -746,13 +912,13 @@
                 <div class="exercise-number">22</div>
                 <div class="exercise-points">5 pts</div>
                 <h3>Ejercicio 22: Inversión en Tecnología</h3>
-                <p>Se invierten $100,000 en dos tecnologías:</p>
+                <p>Se invierten \(\$100{,}000\) en dos tecnologías:</p>
                 <ul>
-                    <li>Tecnología A: $15\%$ rendimiento</li>
-                    <li>Tecnología B: $10\%$ rendimiento</li>
+                    <li>Tecnología A: \(15\%\) rendimiento</li>
+                    <li>Tecnología B: \(10\%\) rendimiento</li>
                 </ul>
-                <p>Rendimiento total $12,500.</p>
-                <p>Sea x = inversión en Tecnología A.</p>
+                <p>Rendimiento total \(\$12{,}500\).</p>
+                <p>Sea \(x\) = inversión en Tecnología A.</p>
                 <input type="text" class="solution-input" placeholder="Inversión en Tecnología A" data-answer="50000" data-points="2">
                 <input type="text" class="solution-input" placeholder="Inversión en Tecnología B" data-answer="50000" data-points="2">
                 <input type="text" class="solution-input" placeholder="Rendimiento de Tecnología A" data-answer="7500" data-points="1">
@@ -765,11 +931,11 @@
                 <h3>Ejercicio 23: Distribución de Agua</h3>
                 <p>Un sistema de riego distribuye agua en 3 zonas:</p>
                 <ul>
-                    <li>Zona 1: $40\%$ del total</li>
-                    <li>Zona 2: $30\%$ del total</li>
+                    <li>Zona 1: \(40\%\) del total</li>
+                    <li>Zona 2: \(30\%\) del total</li>
                     <li>Zona 3: resto</li>
                 </ul>
-                <p>Total de agua: 1,200 litros.</p>
+                <p>Total de agua: \(1{,}200\) litros.</p>
                 <input type="text" class="solution-input" placeholder="Litros en Zona 1" data-answer="480" data-points="1">
                 <input type="text" class="solution-input" placeholder="Litros en Zona 2" data-answer="360" data-points="1">
                 <input type="text" class="solution-input" placeholder="Litros en Zona 3" data-answer="360" data-points="2">
@@ -780,7 +946,10 @@
                 <div class="exercise-number">24</div>
                 <div class="exercise-points">3 pts</div>
                 <h3>Ejercicio 24: Crecimiento de Pasto</h3>
-                <p>El crecimiento G(d) de pasto después de d días es: G(d) = 2d + 100</p>
+                <p>El crecimiento \(G(d)\) de pasto después de \(d\) días es:</p>
+                <div class="math-formula">
+                    $$G(d) = 2d + 100$$
+                </div>
                 <ol>
                     <li>Crecimiento inicial</li>
                     <li>Crecimiento a los 30 días</li>
@@ -798,9 +967,11 @@
                 <h3>Ejercicio 25: Sistema de 3 Ecuaciones</h3>
                 <p>Un sistema de ecuaciones representa la distribución de recursos:</p>
                 <div class="math-formula">
-                    x + y + z = 100<br>
-                    2x + $y = 80$<br>
+                    $$\begin{cases}
+                    x + y + z = 100 \\
+                    2x + y = 80 \\
                     x + 3z = 90
+                    \end{cases}$$
                 </div>
                 <input type="text" class="solution-input" placeholder="Valor de x" data-answer="30" data-points="2">
                 <input type="text" class="solution-input" placeholder="Valor de y" data-answer="20" data-points="2">
@@ -812,10 +983,13 @@
                 <div class="exercise-number">26</div>
                 <div class="exercise-points">4 pts</div>
                 <h3>Ejercicio 26: Costo de Mantenimiento</h3>
-                <p>El costo M(m) de mantener m máquinas es: M(m) = 500m + 2,000</p>
+                <p>El costo \(M(m)\) de mantener \(m\) máquinas es:</p>
+                <div class="math-formula">
+                    $$M(m) = 500m + 2{,}000$$
+                </div>
                 <ol>
                     <li>Costo para 15 máquinas</li>
-                    <li>Máquinas con presupuesto $10,000</li>
+                    <li>Máquinas con presupuesto \(\$10{,}000\)</li>
                     <li>Costo fijo</li>
                     <li>Costo variable por máquina</li>
                 </ol>
@@ -934,11 +1108,24 @@
         </div>
         
         <footer>
-            <p>Tecnología en Producción Pecuaria Sostenible - Módulo 6</p>
+            <p>Tecnología en Producción Pecuaria Sostenible - Práctica 6</p>
         </footer>
     </div>
 
     <script>
+        // Función para mostrar/ocultar el PDF
+        function togglePDF() {
+            const pdfContainer = document.getElementById('pdfContainer');
+            pdfContainer.classList.toggle('hidden');
+
+            // Hacer scroll suave al PDF cuando se abre
+            if (!pdfContainer.classList.contains('hidden')) {
+                setTimeout(() => {
+                    pdfContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
         function checkAnswers() {
             let totalScore = 0;
             let answeredQuestions = 0;
